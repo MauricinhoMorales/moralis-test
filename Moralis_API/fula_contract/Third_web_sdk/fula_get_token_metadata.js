@@ -17,12 +17,9 @@ const runApp = async () => {
     // Get the contract given the address
     const contract = await sdk.getContract("0x5209A9A17e0A54615D3C24C92570fB5b9B14AB1b", "token");
 
-   // Address of the wallet you want to send the tokens to
-    const toAddress = "0xbE6157bC090536ee15763356Ac11be00b15951E3";
-    // The amount of tokens you want to send
-    const amount = 300;
-    await contract.transfer(toAddress, amount);
+    const token = await contract.get();
 
+    console.log(token);
 }
 
 runApp();

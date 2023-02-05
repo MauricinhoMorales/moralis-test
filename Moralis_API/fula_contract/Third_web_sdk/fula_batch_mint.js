@@ -17,11 +17,20 @@ const runApp = async () => {
     // Get the contract given the address
     const contract = await sdk.getContract("0x5209A9A17e0A54615D3C24C92570fB5b9B14AB1b", "token");
 
-   // Address of the wallet you want to send the tokens to
-    const toAddress = "0xbE6157bC090536ee15763356Ac11be00b15951E3";
-    // The amount of tokens you want to send
-    const amount = 300;
-    await contract.transfer(toAddress, amount);
+    // Data to be minted
+    const data = [
+        {
+          toAddress: "0x768e02d0b50fcBc97163CBe70285236e97Ff3001", // Address to mint tokens to
+          amount: 1, // How many tokens to mint to specified address
+        },
+       {
+         toAddress: "0xbE6157bC090536ee15763356Ac11be00b15951E3",
+         amount: 1,
+       }
+      ]
+
+    // Function to mint 
+    await contract.mintBatchTo(data);
 
 }
 

@@ -9,12 +9,12 @@ const runApp = async () => {
     apiKey: MORALIS_API_KEY,
   });
 
-  const address = "0x5209a9a17e0a54615d3c24c92570fb5b9b14ab1b";
+  const symbols = ["Fula"];
 
   const chain = EvmChain.GOERLI;
 
-  const response = await Moralis.EvmApi.token.getTokenTransfers({
-    address,
+  const response = await Moralis.EvmApi.token.getTokenMetadataBySymbol({
+    symbols,
     chain,
   });
 
